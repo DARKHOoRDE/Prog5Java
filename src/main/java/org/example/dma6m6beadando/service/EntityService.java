@@ -139,7 +139,7 @@ public class EntityService {
         List<UserListDTO> currU = userRepository.findUsernamesByProjectId(projId);
         return currU;
     }
-
+    @Transactional
     @PreAuthorize("hasRole('MANAGER')")
     public SprintDTO createNewSprint(NewSprintDTO newSprintDTO){
         var sprint = newSprintMapper.ToEnt(newSprintDTO);
